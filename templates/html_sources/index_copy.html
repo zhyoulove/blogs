@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>首页</title>
+    <link rel="stylesheet" href="{% static 'css/bootstrap.css' %}">
+    <script src="{% static 'js/bootstrap.js' %}"></script>
+</head>
+<body>
+<header class="p-3 text-bg-light ">
+    {#    导航栏#}
+    <div class="container ">
+        <div class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start">
+            <a href="/static" class="d-flex align-items-center mb-2 mb-lg-0 text-white text-decoration-none">
+                <img src="{% static 'images/logo.jpg' %}" height="40px">
+            </a>
+
+            <ul class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
+                <li><a href="#" class="nav-link px-2 text-secondary">首页</a></li>
+                <li><a href="#" class="nav-link px-2 text-secondary">发布博客</a></li>
+            </ul>
+
+            <form class="col-12 col-lg-auto mb-3 mb-lg-0 me-lg-3" role="search">
+                <input type="search" class="form-control form-control text-bg-feedback" placeholder="搜索..."
+                       aria-label="Search">
+            </form>
+
+            <div class="text-end">
+                <button type="button" class="btn btn-outline-primary me-2">登录</button>
+                <button type="button" class="btn btn-secondary">注册</button>
+            </div>
+        </div>
+    </div>
+</header>
+    {#    博客列表#}
+
+    <div class="container">
+        <h1>博客列表</h1>
+        <div class="container text-center">
+            <div class="row">
+                <div class="col">
+                    <div class="card text-center">
+                        <div class="card-header" style="text-align: left;">
+                            <a href="#" style="text-decoration: none; font-size: 18px; color: #007bff;">Django零基础开发（博客标题）</a>
+                        </div>
+                        <div class="card-body" style="height: 130px; text-align: left;">
+                            <p class="card-text">With supporting text below as a natural lead-in to additional
+                                content.</p>
+                            <p class="card-text">With supporting text below as a natural lead-in to additional
+                                content.</p>
+                        </div>
+
+                        <div class="card-footer text-muted"
+                             style="display: flex; justify-content: space-between; align-items: center;">
+                            <span>发布人: 用户名</span>
+                            <span>发布时间：2024年12月3日 22:10</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="card text-center">
+                        <div class="card-header" style="text-align: left;">
+                            <a href="#" style="text-decoration: none; font-size: 18px; color: #007bff;">Django零基础开发（博客标题）</a>
+                        </div>
+                        <div class="card-body" style="height: 130px; text-align: left;">
+                            <p class="card-text">With supporting text below as a natural lead-in to additional
+                                content.</p>
+                            <p class="card-text">With supporting text below as a natural lead-in to additional
+                                content.</p>
+                        </div>
+
+                        <div class="card-footer text-muted"
+                             style="display: flex; justify-content: space-between; align-items: center;">
+                            <span>发布人: 用户名</span>
+                            <span>发布时间：2024年12月3日 22:10</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col">
+                    <div class="card text-center">
+                        <div class="card-header" style="text-align: left;">
+                            <a href="#" style="text-decoration: none; font-size: 18px; color: #007bff;">Django零基础开发（博客标题）</a>
+                        </div>
+                        <div class="card-body" style="height: 130px; text-align: left;">
+                            <p class="card-text">With supporting text below as a natural lead-in to additional
+                                content.</p>
+                            <p class="card-text">With supporting text below as a natural lead-in to additional
+                                content.</p>
+                        </div>
+
+                        <div class="card-footer text-muted"
+                             style="display: flex; justify-content: space-between; align-items: center;">
+                            <span>发布人: 用户名</span>
+                            <span>发布时间：2024年12月3日 22:10</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="card text-center">
+                        <div class="card-header" style="text-align: left;">
+                            <a href="#" style="text-decoration: none; font-size: 18px; color: #007bff;">Django零基础开发（博客标题）</a>
+                        </div>
+                        <div class="card-body" style="height: 130px; text-align: left;">
+                            <p class="card-text">With supporting text below as a natural lead-in to additional
+                                content.</p>
+                            <p class="card-text">With supporting text below as a natural lead-in to additional
+                                content.</p>
+                        </div>
+
+                        <div class="card-footer text-muted"
+                             style="display: flex; justify-content: space-between; align-items: center;">
+                            <span>发布人: 用户名</span>
+                            <span>发布时间：2024年12月3日 22:10</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col">
+                    <div class="card text-center">
+                        <div class="card-header" style="text-align: left;">
+                            <a href="#" style="text-decoration: none; font-size: 18px; color: #007bff;">Django零基础开发（博客标题）</a>
+                        </div>
+                        <div class="card-body" style="height: 130px; text-align: left;">
+                            <p class="card-text">With supporting text below as a natural lead-in to additional
+                                content.</p>
+                            <p class="card-text">With supporting text below as a natural lead-in to additional
+                                content.</p>
+                        </div>
+
+                        <div class="card-footer text-muted"
+                             style="display: flex; justify-content: space-between; align-items: center;">
+                            <span>发布人: 用户名</span>
+                            <span>发布时间：2024年12月3日 22:10</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="card text-center">
+                        <div class="card-header" style="text-align: left;">
+                            <a href="#" style="text-decoration: none; font-size: 18px; color: #007bff;">Django零基础开发（博客标题）</a>
+                        </div>
+                        <div class="card-body" style="height: 130px; text-align: left;">
+                            <p class="card-text">With supporting text below as a natural lead-in to additional
+                                content.</p>
+                            <p class="card-text">With supporting text below as a natural lead-in to additional
+                                content.</p>
+                        </div>
+
+                        <div class="card-footer text-muted"
+                             style="display: flex; justify-content: space-between; align-items: center;">
+                            <span>发布人: 用户名</span>
+                            <span>发布时间：2024年12月3日 22:10</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+    <!-- Content here -->
+    </div>
+</body>
+</html>
