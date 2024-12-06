@@ -10,7 +10,7 @@ from django.conf import settings
 import time
 from django.views.decorators.http import require_http_methods
 from .forms import LoginForm
-from django.contrib.auth import get_user_model , login
+from django.contrib.auth import get_user_model , login , logout
 # Create your views here.
 
 User =get_user_model()
@@ -62,6 +62,14 @@ def user_login(request):
 
 
 
+
+
+"""
+    todo 退出登录
+"""
+def user_logout(request):
+    logout(request)
+    return redirect(reverse('index'))
 
 
 

@@ -1,138 +1,44 @@
 {% extends 'base.html' %}
 {% block title %}
-首页
+    首页
 {% endblock %}
 
 
 {% block main %}
-        {#    博客列表#}
+    {#    博客列表#}
 
     <div class="container">
-        <h1>博客列表</h1>
-        <div class="container text-center">
-            <div class="row">
-                <div class="col">
+        <div class="row">
+            {% for blog in blogs %}
+                <div class="col-md-6"> <!-- 每列占 6 个栅格，即每行显示两个博客 -->
                     <div class="card text-center">
                         <div class="card-header" style="text-align: left;">
-                            <a href="#" style="text-decoration: none; font-size: 18px; color: #007bff;">Django零基础开发（博客标题）</a>
+                            <!-- 动态获取博客标题 -->
+                            <a href="{% url 'detail' blog.id %}"
+                                style="text-decoration: none; font-size: 18px; color: #007bff;">
+                                {{ blog.title }}
+                            </a>
                         </div>
                         <div class="card-body" style="height: 130px; text-align: left;">
-                            <p class="card-text">With supporting text below as a natural lead-in to additional
-                                content.</p>
-                            <p class="card-text">With supporting text below as a natural lead-in to additional
-                                content.</p>
+                            <!-- 动态获取博客的简介或内容的前部分 -->
+                            <p class="card-text">{{ blog.get_excerpt }}</p>
                         </div>
 
                         <div class="card-footer text-muted"
                              style="display: flex; justify-content: space-between; align-items: center;">
-                            <span>发布人: 用户名</span>
-                            <span>发布时间：2024年12月3日 22:10</span>
+                            <!-- 动态获取发布人和发布时间 -->
+                            <span>发布人: {{ blog.author.username }}</span>
+                            <span>发布时间：{{ blog.pub_time|date:"Y年m月d日 H:i" }}</span>
                         </div>
                     </div>
                 </div>
-                <div class="col">
-                    <div class="card text-center">
-                        <div class="card-header" style="text-align: left;">
-                            <a href="#" style="text-decoration: none; font-size: 18px; color: #007bff;">Django零基础开发（博客标题）</a>
-                        </div>
-                        <div class="card-body" style="height: 130px; text-align: left;">
-                            <p class="card-text">With supporting text below as a natural lead-in to additional
-                                content.</p>
-                            <p class="card-text">With supporting text below as a natural lead-in to additional
-                                content.</p>
-                        </div>
 
-                        <div class="card-footer text-muted"
-                             style="display: flex; justify-content: space-between; align-items: center;">
-                            <span>发布人: 用户名</span>
-                            <span>发布时间：2024年12月3日 22:10</span>
-                        </div>
+                {% if forloop.counter|divisibleby:2 %}
                     </div>
-                </div>
+                    <div class="row"> <!-- 每两个博客后结束并重新开始一行 -->
+                {% endif %}
+            {% endfor %}
             </div>
-            <div class="row">
-                <div class="col">
-                    <div class="card text-center">
-                        <div class="card-header" style="text-align: left;">
-                            <a href="#" style="text-decoration: none; font-size: 18px; color: #007bff;">Django零基础开发（博客标题）</a>
-                        </div>
-                        <div class="card-body" style="height: 130px; text-align: left;">
-                            <p class="card-text">With supporting text below as a natural lead-in to additional
-                                content.</p>
-                            <p class="card-text">With supporting text below as a natural lead-in to additional
-                                content.</p>
-                        </div>
-
-                        <div class="card-footer text-muted"
-                             style="display: flex; justify-content: space-between; align-items: center;">
-                            <span>发布人: 用户名</span>
-                            <span>发布时间：2024年12月3日 22:10</span>
-                        </div>
-                    </div>
-                </div>
-                <div class="col">
-                    <div class="card text-center">
-                        <div class="card-header" style="text-align: left;">
-                            <a href="#" style="text-decoration: none; font-size: 18px; color: #007bff;">Django零基础开发（博客标题）</a>
-                        </div>
-                        <div class="card-body" style="height: 130px; text-align: left;">
-                            <p class="card-text">With supporting text below as a natural lead-in to additional
-                                content.</p>
-                            <p class="card-text">With supporting text below as a natural lead-in to additional
-                                content.</p>
-                        </div>
-
-                        <div class="card-footer text-muted"
-                             style="display: flex; justify-content: space-between; align-items: center;">
-                            <span>发布人: 用户名</span>
-                            <span>发布时间：2024年12月3日 22:10</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col">
-                    <div class="card text-center">
-                        <div class="card-header" style="text-align: left;">
-                            <a href="#" style="text-decoration: none; font-size: 18px; color: #007bff;">Django零基础开发（博客标题）</a>
-                        </div>
-                        <div class="card-body" style="height: 130px; text-align: left;">
-                            <p class="card-text">With supporting text below as a natural lead-in to additional
-                                content.</p>
-                            <p class="card-text">With supporting text below as a natural lead-in to additional
-                                content.</p>
-                        </div>
-
-                        <div class="card-footer text-muted"
-                             style="display: flex; justify-content: space-between; align-items: center;">
-                            <span>发布人: 用户名</span>
-                            <span>发布时间：2024年12月3日 22:10</span>
-                        </div>
-                    </div>
-                </div>
-                <div class="col">
-                    <div class="card text-center">
-                        <div class="card-header" style="text-align: left;">
-                            <a href="#" style="text-decoration: none; font-size: 18px; color: #007bff;">Django零基础开发（博客标题）</a>
-                        </div>
-                        <div class="card-body" style="height: 130px; text-align: left;">
-                            <p class="card-text">With supporting text below as a natural lead-in to additional
-                                content.</p>
-                            <p class="card-text">With supporting text below as a natural lead-in to additional
-                                content.</p>
-                        </div>
-
-                        <div class="card-footer text-muted"
-                             style="display: flex; justify-content: space-between; align-items: center;">
-                            <span>发布人: 用户名</span>
-                            <span>发布时间：2024年12月3日 22:10</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-
     </div>
-    <!-- Content here -->
-    </div>
+
 {% endblock %}

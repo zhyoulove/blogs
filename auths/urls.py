@@ -21,7 +21,10 @@ from . import views
 app_name = 'auths'
 urlpatterns = [
     path('user_register', views.user_register, name='user_register'),
+
     path('user_login' , views.user_login, name='user_login'),
 
     path('send_email' , views.send_email, name='send_email'),
+
+    path('user_logout' , views.user_logout, name='user_logout'),
 ]

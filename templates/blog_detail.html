@@ -1,74 +1,63 @@
 {% extends 'base.html' %}
+
 {% block title %}
-博客详情
+    {{ blog.title }} - 博客详情
 {% endblock %}
 
 {% block head %}
-  <link rel="stylesheet" href="{% static 'css/blogDetail.css' %}">
+    <link rel="stylesheet" href="{% static 'css/blogDetail.css' %}">
 {% endblock %}
 
-
 {% block main %}
-{#    博客详情#}
-<div class="container">
-    <!-- 博客标题 -->
-    <h1 class="display-4 text-center">如何使用Bootstrap创建博客页面</h1>
+    <div class="container">
+        <!-- 博客标题 -->
+        <h1 class="display-4 text-center">{{ blog.title }}</h1>
 
-    <!-- 博客信息 -->
-    <p class="text-muted text-center">发布人: <strong>张三</strong> | 发布时间: <span>2024-12-04</span></p>
+        <!-- 博客信息 -->
+        <p class="text-muted text-center">发布人: <strong>{{ blog.author.username }}</strong> | 发布时间:
+            <span>{{ blog.pub_time|date:"Y年m月d日" }}</span></p>
 
-    <!-- 博客内容 -->
-    <div class="blog-content">
-        <h2>引言：为什么选择Bootstrap</h2>
-        <p>
-            Bootstrap 是一个非常流行的前端框架，它提供了一套完整的 HTML、CSS 和 JavaScript 工具包，帮助开发者快速构建响应式网站。通过使用 Bootstrap，开发者可以省去很多繁琐的设计工作，专注于网站的功能和内容。
-        </p>
-
-    </div>
-
-    <!-- 评论区 -->
-    <div class="comment-section">
-        <h4>评论区</h4>
-
-        <!-- 评论输入框 -->
-        <div class="comment-input-group">
-            <textarea class="form-control" placeholder="请输入您的评论" rows="3"></textarea>
+        <!-- 博客内容 -->
+        <div class="blog-content">
+            <h2>引言：为什么选择{{ blog.category.name }}</h2>
+            <p>
+                {{ blog.content }}
+            </p>
         </div>
 
-        <!-- 提交评论按钮 -->
-        <button class="btn btn-primary comment-button" type="button">提交评论</button>
+        <!-- 评论区 -->
+        <div class="comment-section">
+            <h4>评论区</h4>
 
-        <!-- 评论总数 -->
-        <p>评论总数：<strong>3</strong></p>
+            <!-- 评论输入框 -->
+            <form method="POST">
+                {% csrf_token %}
+                {{ form.as_p }}
+                <button type="submit" class="btn btn-primary">提交评论</button>
+            </form>
 
-        <!-- 评论列表 -->
-        <div class="comment-box">
-            <div class="comment-card card">
-                <div class="card-body">
-                    <h5 class="card-title">李四</h5>
-                    <h6 class="card-subtitle mb-2 text-muted">2024-12-03 14:30</h6>
-                    <p class="card-text">这篇博客非常有帮助！我也在学习Bootstrap，感觉这篇文章写得很清晰。</p>
-                </div>
-            </div>
+            <!-- 评论总数 -->
+            <p>评论总数：<strong>{{ comments.count }}</strong></p>
 
-            <div class="comment-card card">
-                <div class="card-body">
-                    <h5 class="card-title">王五</h5>
-                    <h6 class="card-subtitle mb-2 text-muted">2024-12-03 16:00</h6>
-                    <p class="card-text">很好的博客，建议可以加一些代码示例来演示Bootstrap的应用。</p>
-                </div>
-            </div>
-
-            <div class="comment-card card">
-                <div class="card-body">
-                    <h5 class="card-title">赵六</h5>
-                    <h6 class="card-subtitle mb-2 text-muted">2024-12-03 18:45</h6>
-                    <p class="card-text">文章写得不错，期待后续更多内容。</p>
-                </div>
+            <!-- 评论列表 -->
+            <div class="comment-box">
+                {% for comment in comments %}
+                    <div class="comment-card card mb-3">
+                        <div class="card-body">
+                            <div class="d-flex justify-content-between">
+                                <!-- 评论人 -->
+                                <h5 class="card-title">{{ comment.author.username }}</h5>
+                                <!-- 评论时间 -->
+                                <h6 class="card-subtitle text-muted">{{ comment.pub_time|date:"Y年m月d日 H:i" }}</h6>
+                            </div>
+                            <!-- 评论内容 -->
+                            <p class="card-text mt-2">{{ comment.content }}</p>
+                        </div>
+                    </div>
+                {% empty %}
+                    <p>暂无评论</p>
+                {% endfor %}
             </div>
         </div>
     </div>
-
-</div>
-
 {% endblock %}

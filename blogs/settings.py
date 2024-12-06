@@ -32,6 +32,7 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
+    "simpleui",
     "django.contrib.admin",
     "django.contrib.auth",
     "django.contrib.contenttypes",
@@ -96,30 +97,29 @@ DATABASES = {
 
 AUTH_PASSWORD_VALIDATORS = [
     {
-        "NAME": "django.contrib.auths.password_validation.UserAttributeSimilarityValidator",
+        "NAME": "django.contrib.auth.password_validation.UserAttributeSimilarityValidator",
     },
     {
-        "NAME": "django.contrib.auths.password_validation.MinimumLengthValidator",
+        "NAME": "django.contrib.auth.password_validation.MinimumLengthValidator",
     },
     {
-        "NAME": "django.contrib.auths.password_validation.CommonPasswordValidator",
+        "NAME": "django.contrib.auth.password_validation.CommonPasswordValidator",
     },
     {
-        "NAME": "django.contrib.auths.password_validation.NumericPasswordValidator",
+        "NAME": "django.contrib.auth.password_validation.NumericPasswordValidator",
     },
 ]
 
 
 # Internationalization
 # https://docs.djangoproject.com/en/5.1/topics/i18n/
+LANGUAGE_CODE = "zh-hans"  # 语言设置为简体中文
 
-LANGUAGE_CODE = "en-us"
-
-TIME_ZONE = "UTC"
+TIME_ZONE = "Asia/Shanghai"  # 设置时区为中国标准时间（CST）
 
 USE_I18N = True
 
-USE_TZ = True
+USE_TZ = True  # 启用时区支持
 
 
 # Static files (CSS, JavaScript, Images)
@@ -166,3 +166,8 @@ REDIS_TIMEOUT = 5 * 60  # 例如，5分钟过期时间 : 验证码的逻辑
 
 CUBES_REDIS_TIMEOUT = 60 * 60  # 一小时超时
 NEVER_REDIS_TIMEOUT = 365 * 24 * 60 * 60  # 一年超时
+
+
+
+# 确保只有登录的用户才可以访问
+LOGIN_URL = '/auths/user_login'  # 假设你定义的登录页面的 URL 名称为 'login'
