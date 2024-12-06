@@ -6,7 +6,6 @@ $(document).ready(function () {
         // 获取富文本编辑器的内容
         var content = quill.root.innerHTML;
         $("#content").val(content);  // 将内容放入隐藏的输入框中
-
         // 使用AJAX提交表单数据
         $.ajax({
             url: '',  // 当前页面URL
